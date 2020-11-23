@@ -4,12 +4,18 @@ from config import Constants
 
 import configparser
 
-
 def getConfigOption(key):
     cf = configparser.ConfigParser()
     cf.read(r"E:\study\UIAuto\Python\AppKeywordDriver\config\config.ini")
     value = cf.get("Excel-info", key)
     return int(value)
+
+
+#读取excel文件
+def getExcelFile(Path, SheetName):
+    ExcelWBook = load_workbook(Path)
+    ExcelSheet = ExcelWBook[SheetName]
+    return ExcelSheet
 
 
 # 读取Excel文件单元格数据
@@ -77,5 +83,7 @@ if __name__ == '__main__':
     #print(getCellData(path, sheetname, 2, colnum))
     #print(getRowCount(path, sheetname))
     #print(getRowContains(path, sheetname, stestcaseiD, colnum))
-    print(getTestStepsCount(path, sheetname, stestcaseiD, itestcasestart))
+    #print(getTestStepsCount(path, sheetname, stestcaseiD, itestcasestart))
+    print(dir())
+
 
